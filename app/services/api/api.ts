@@ -2,6 +2,7 @@ import { ApisauceInstance, create, ApiResponse } from "apisauce"
 import { getGeneralApiProblem } from "./api-problem"
 import { ApiConfig, DEFAULT_API_CONFIG } from "./api-config"
 import * as Types from "./api.types"
+import { User } from "../../models/User"
 
 /**
  * Manages all requests to the API.
@@ -44,12 +45,42 @@ export class Api {
     })
   }
 
+  async signIn(data): Promise<Types.GetUserResult> {
+    this.setup()
+    const response: ApiResponse<any> = await this.apisauce.post(`/auth/register`, data)
+
+    if (!response.ok) {
+      const problem = getGeneralApiProblem(response)
+      if (problem) return problem
+    }
+
+    const user: Types.User = new User(response.data);
+
+    console.log(user)
+    return { kind: "ok", user }
+  }
+
+  async logIn(data): Promise<Types.GetLoginResult> {
+    this.setup()
+    const response: ApiResponse<any> = await this.apisauce.post(`/auth/authenticate`, data)
+
+    if (!response.ok) {
+      const problem = getGeneralApiProblem(response)
+      if (problem) return problem
+    }
+
+    const token: Types.Login = response.data;
+
+    return { kind: "ok", token }
+  }
+
   /**
    * Gets a list of users.
    */
-  async getUsers(): Promise<Types.GetUsersResult> {
+  async getBarbers(): Promise<Types.GetUsersResult> {
+    this.setup()
     // make the api call
-    const response: ApiResponse<any> = await this.apisauce.get(`/users`)
+    const response: ApiResponse<any> = await this.apisauce.get(`/barbers`)
 
     // the typical ways to die when calling an api
     if (!response.ok) {
@@ -69,32 +100,6 @@ export class Api {
       const rawUsers = response.data
       const resultUsers: Types.User[] = rawUsers.map(convertUser)
       return { kind: "ok", users: resultUsers }
-    } catch {
-      return { kind: "bad-data" }
-    }
-  }
-
-  /**
-   * Gets a single user by ID
-   */
-
-  async getUser(id: string): Promise<Types.GetUserResult> {
-    // make the api call
-    const response: ApiResponse<any> = await this.apisauce.get(`/users/${id}`)
-
-    // the typical ways to die when calling an api
-    if (!response.ok) {
-      const problem = getGeneralApiProblem(response)
-      if (problem) return problem
-    }
-
-    // transform the data into the format we are expecting
-    try {
-      const resultUser: Types.User = {
-        id: response.data.id,
-        name: response.data.name,
-      }
-      return { kind: "ok", user: resultUser }
     } catch {
       return { kind: "bad-data" }
     }

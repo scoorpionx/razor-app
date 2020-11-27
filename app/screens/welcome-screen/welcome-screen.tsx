@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import { Button, Header, Screen, Text, Wallpaper } from "../../components"
 import { color, spacing, typography } from "../../theme"
-const bowserLogo = require("./bowser.png")
+const razorLogo = require("./razor.png")
 
 const FULL: ViewStyle = { flex: 1 }
 const CONTAINER: ViewStyle = {
@@ -28,6 +28,7 @@ const HEADER_TITLE: TextStyle = {
   lineHeight: 15,
   textAlign: "center",
   letterSpacing: 1.5,
+  marginTop: 40
 }
 const TITLE_WRAPPER: TextStyle = {
   ...TEXT,
@@ -46,10 +47,12 @@ const ALMOST: TextStyle = {
   fontSize: 26,
   fontStyle: "italic",
 }
-const BOWSER: ImageStyle = {
+const RAZOR: ImageStyle = {
   alignSelf: "center",
   marginVertical: spacing[5],
   maxWidth: "100%",
+  width: 240,
+  height: 180
 }
 const CONTENT: TextStyle = {
   ...TEXT,
@@ -58,18 +61,19 @@ const CONTENT: TextStyle = {
   lineHeight: 22,
   marginBottom: spacing[5],
 }
-const CONTINUE: ViewStyle = {
+const BTN: ViewStyle = {
   paddingVertical: spacing[4],
   paddingHorizontal: spacing[4],
   backgroundColor: "#5D2555",
+  marginTop: spacing[2]
 }
-const CONTINUE_TEXT: TextStyle = {
+const BTN_TEXT: TextStyle = {
   ...TEXT,
   ...BOLD,
   fontSize: 13,
   letterSpacing: 2,
 }
-const FOOTER: ViewStyle = { backgroundColor: "#20162D" }
+const FOOTER: ViewStyle = {}
 const FOOTER_CONTENT: ViewStyle = {
   paddingVertical: spacing[4],
   paddingHorizontal: spacing[4],
@@ -77,7 +81,8 @@ const FOOTER_CONTENT: ViewStyle = {
 
 export const WelcomeScreen = observer(function WelcomeScreen() {
   const navigation = useNavigation()
-  const nextScreen = () => navigation.navigate("demo")
+  const loginScreen = () => navigation.navigate("login")
+  const signinScreen = () => navigation.navigate("signin")
 
   return (
     <View style={FULL}>
@@ -85,28 +90,33 @@ export const WelcomeScreen = observer(function WelcomeScreen() {
       <Screen style={CONTAINER} preset="scroll" backgroundColor={color.transparent}>
         <Header headerTx="welcomeScreen.poweredBy" style={HEADER} titleStyle={HEADER_TITLE} />
         <Text style={TITLE_WRAPPER}>
-          <Text style={TITLE} text="Your new app, " />
-          <Text style={ALMOST} text="almost" />
+          <Text style={TITLE} text="Seja bem vindo ao " />
+          <Text style={ALMOST} text="Razor" />
           <Text style={TITLE} text="!" />
         </Text>
         <Text style={TITLE} preset="header" tx="welcomeScreen.readyForLaunch" />
-        <Image source={bowserLogo} style={BOWSER} />
+        <Image source={razorLogo} style={RAZOR} />
         <Text style={CONTENT}>
-          This probably isn't what your app is going to look like. Unless your designer handed you
-          this screen and, in that case, congrats! You're ready to ship.
+          O Razor é um aplicativo que propõe informatizar e aproximar a barbearia/barbeiro e o cliente.
         </Text>
         <Text style={CONTENT}>
-          For everyone else, this is where you'll see a live preview of your fully functioning app
-          using Ignite.
+          Para quem é um profissional da área ou para quem está a procura de um profissional de qualidade
+          para dar aquele tapa no visual.
         </Text>
       </Screen>
       <SafeAreaView style={FOOTER}>
         <View style={FOOTER_CONTENT}>
           <Button
-            style={CONTINUE}
-            textStyle={CONTINUE_TEXT}
-            tx="welcomeScreen.continue"
-            onPress={nextScreen}
+            style={BTN}
+            textStyle={BTN_TEXT}
+            tx="welcomeScreen.login"
+            onPress={loginScreen}
+          />
+          <Button
+            style={BTN}
+            textStyle={BTN_TEXT}
+            tx="welcomeScreen.signin"
+            onPress={signinScreen}
           />
         </View>
       </SafeAreaView>

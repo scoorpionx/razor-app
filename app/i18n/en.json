@@ -8,9 +8,10 @@
     "invalidEmail": "Invalid email address."
   },
   "welcomeScreen": {
-    "poweredBy": "POWERED BY BOWSER",
-    "readyForLaunch": "Ready for launch.",
-    "continue": "CONTINUE"
+    "poweredBy": "POWERED BY RAZOR TEAM",
+    "readyForLaunch": "Pronto para começar.",
+    "login": "FAZER LOGIN",
+    "signin": "FAZER CADASTRO"
   },
   "demoScreen": {
     "howTo": "HOW TO",
