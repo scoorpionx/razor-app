@@ -1,0 +1,136 @@
+[
+  {
+    "id": 853,
+    "ORCAMENTO_COD": 137,
+    "ORCAMENTO_NOME": "TRY-ORC-EXE (TESTE SISPAC 2)",
+    "SERVICO_COD": 595344,
+    "SERVICO_NOME": "Alvenaria de tijolo cerâmico furado 19x19x29 cm esp.: 19 cm - Alv. Externa",
+    "PAVIMENTO": "1400",
+    "NIV_TAB_IN_CODIGO": 1118,
+    "NIV_PAD_IN_CODIGO": 6,
+    "NIV_IDE_ST_CODIGO": "1",
+    "NIV_IN_CODIGO": 705181,
+    "DATA_INICIO": "2021-07-20T21:00:00-03:00",
+    "DATA_FIM": "2021-08-02T21:00:00-03:00",
+    "VALOR_TOTAL": 4595.905000000001,
+    "MASCARA": "02.04.03.17.01",
+    "orcamento": 4,
+    "produtos": [
+      {
+        "id": 4911,
+        "SERVICO_COD": 595344,
+        "PRODUTO_COD": 11808,
+        "PRODUTO_NOME": "PINO LISO C/ ARRUELA CONICA 1/4 X 28MM",
+        "DEF": "PRODUTO",
+        "QUANTIDADE": 923.8000000000001,
+        "UNIDADE": "UN",
+        "VALOR_UNIDADE": 1.11,
+        "VALOR_TOTAL": 1024.0295286,
+        "orcamento_servico": 853
+      },
+      {
+        "id": 4909,
+        "SERVICO_COD": 595344,
+        "PRODUTO_COD": 7757,
+        "PRODUTO_NOME": "ARGAMASSA USINADA",
+        "DEF": "PRODUTO",
+        "QUANTIDADE": 11.77845,
+        "UNIDADE": "M3",
+        "VALOR_UNIDADE": 235,
+        "VALOR_TOTAL": 2767.93575,
+        "orcamento_servico": 853
+      },
+      {
+        "id": 4912,
+        "SERVICO_COD": 595344,
+        "PRODUTO_COD": 17117,
+        "PRODUTO_NOME": "TIJOLO CERAMICO FURADO 19X19X29CM",
+        "DEF": "PRODUTO",
+        "QUANTIDADE": 4272.575,
+        "UNIDADE": "UN",
+        "VALOR_UNIDADE": 1.5,
+        "VALOR_TOTAL": 6408.8625,
+        "orcamento_servico": 853
+      },
+      {
+        "id": 4913,
+        "SERVICO_COD": 595344,
+        "PRODUTO_COD": 22416,
+        "PRODUTO_NOME": "TELA PARA ARMACAO ALVENARIA 17,5X50CM",
+        "DEF": "PRODUTO",
+        "QUANTIDADE": 3.46425,
+        "UNIDADE": "CX",
+        "VALOR_UNIDADE": 141,
+        "VALOR_TOTAL": 488.45925,
+        "orcamento_servico": 853
+      }
+    ]
+  },
+  {
+    "id": 858,
+    "ORCAMENTO_COD": 137,
+    "ORCAMENTO_NOME": "TRY-ORC-EXE (TESTE SISPAC 2)",
+    "SERVICO_COD": 595312,
+    "SERVICO_NOME": "Alvenaria de tijolo cerâmico furado 19x19x29 cm esp.: 19 cm - Alv. Externa",
+    "PAVIMENTO": "600",
+    "NIV_TAB_IN_CODIGO": 1118,
+    "NIV_PAD_IN_CODIGO": 6,
+    "NIV_IDE_ST_CODIGO": "1",
+    "NIV_IN_CODIGO": 705157,
+    "DATA_INICIO": "2021-04-19T21:00:00-03:00",
+    "DATA_FIM": "2021-05-03T21:00:00-03:00",
+    "VALOR_TOTAL": 4595.905000000001,
+    "MASCARA": "02.04.03.09.01",
+    "orcamento": 4,
+    "produtos": [
+      {
+        "id": 4919,
+        "SERVICO_COD": 595312,
+        "PRODUTO_COD": 7757,
+        "PRODUTO_NOME": "ARGAMASSA USINADA",
+        "DEF": "PRODUTO",
+        "QUANTIDADE": 11.77845,
+        "UNIDADE": "M3",
+        "VALOR_UNIDADE": 235,
+        "VALOR_TOTAL": 2767.93575,
+        "orcamento_servico": 858
+      },
+      {
+        "id": 4920,
+        "SERVICO_COD": 595312,
+        "PRODUTO_COD": 11808,
+        "PRODUTO_NOME": "PINO LISO C/ ARRUELA CONICA 1/4 X 28MM",
+        "DEF": "PRODUTO",
+        "QUANTIDADE": 923.8000000000001,
+        "UNIDADE": "UN",
+        "VALOR_UNIDADE": 1.11,
+        "VALOR_TOTAL": 1024.0295286,
+        "orcamento_servico": 858
+      },
+      {
+        "id": 4921,
+        "SERVICO_COD": 595312,
+        "PRODUTO_COD": 17117,
+        "PRODUTO_NOME": "TIJOLO CERAMICO FURADO 19X19X29CM",
+        "DEF": "PRODUTO",
+        "QUANTIDADE": 4272.575,
+        "UNIDADE": "UN",
+        "VALOR_UNIDADE": 1.5,
+        "VALOR_TOTAL": 6408.8625,
+        "orcamento_servico": 858
+      },
+      {
+        "id": 4922,
+        "SERVICO_COD": 595312,
+        "PRODUTO_COD": 22416,
+        "PRODUTO_NOME": "TELA PARA ARMACAO ALVENARIA 17,5X50CM",
+        "DEF": "PRODUTO",
+        "QUANTIDADE": 3.46425,
+        "UNIDADE": "CX",
+        "VALOR_UNIDADE": 141,
+        "VALOR_TOTAL": 488.45925,
+        "orcamento_servico": 858
+      }
+    ]
+  }
+]
