@@ -77,11 +77,6 @@ const HINT: TextStyle = {
   marginVertical: spacing[2],
 }
 
-const platformCommand = Platform.select({
-  ios: "Cmd + D",
-  android: "Cmd/Ctrl + M",
-})
-
 export const DemoScreen = observer(function DemoScreen() {
   const navigation = useNavigation()
   const goBack = () => navigation.goBack()
@@ -111,8 +106,7 @@ export const DemoScreen = observer(function DemoScreen() {
         preview: "More control with display()",
         important: true,
         image: {
-          uri:
-            "https://avatars2.githubusercontent.com/u/3902527?s=200&u=a0d16b13ed719f35d95ca0f4440f5d07c32c349a&v=4",
+          uri: "https://avatars2.githubusercontent.com/u/3902527?s=200&u=a0d16b13ed719f35d95ca0f4440f5d07c32c349a&v=4",
         },
       })
       // make an API call for the demo
@@ -127,7 +121,7 @@ export const DemoScreen = observer(function DemoScreen() {
   )
 
   return (
-    <View testID="DemoScreen" style={FULL}>
+    <View style={FULL}>
       <Wallpaper />
       <Screen style={CONTAINER} preset="scroll" backgroundColor={color.transparent}>
         <Header
@@ -139,11 +133,8 @@ export const DemoScreen = observer(function DemoScreen() {
         />
         <Text style={TITLE} preset="header" tx="demoScreen.title" />
         <Text style={TAGLINE} tx="demoScreen.tagLine" />
-        <BulletItem text="Integrated here, Navigation with State, TypeScript, Storybook, Solidarity, and i18n." />
-        <BulletItem
-          text={`To run Storybook, press ${platformCommand} or shake the device to show the developer menu, then select "Toggle Storybook"`}
-        />
         <BulletItem text="Load up Reactotron!  You can inspect your app, view the events, interact, and so much more!" />
+        <BulletItem text="Integrated here, Navigation with State, TypeScript, Storybook, Solidarity, and i18n." />
         <View>
           <Button
             style={DEMO}
@@ -151,14 +142,8 @@ export const DemoScreen = observer(function DemoScreen() {
             tx="demoScreen.reactotron"
             onPress={demoReactotron}
           />
-          <Text style={HINT} tx={`demoScreen.${Platform.OS}ReactotronHint` as const} />
+          <Text style={HINT} tx={`demoScreen.${Platform.OS}ReactotronHint`} />
         </View>
-        <Button
-          style={DEMO}
-          textStyle={DEMO_TEXT}
-          tx="demoScreen.demoList"
-          onPress={() => navigation.navigate("demoList")}
-        />
         <Image source={logoIgnite} style={IGNITE} />
         <View style={LOVE_WRAPPER}>
           <Text style={LOVE} text="Made with" />

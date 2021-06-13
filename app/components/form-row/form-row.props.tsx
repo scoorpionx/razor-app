@@ -1,5 +1,5 @@
 import * as React from "react"
-import { StyleProp, ViewStyle } from "react-native"
+import { ViewStyle } from "react-native"
 import { FormRowPresets } from "./form-row.presets"
 
 /**
@@ -14,7 +14,7 @@ export interface FormRowProps {
   /**
    * Override the container style... useful for margins and padding.
    */
-  style?: StyleProp<ViewStyle>
+  style?: ViewStyle | ViewStyle[]
 
   /**
    * The type of border.

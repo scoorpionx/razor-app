@@ -2,6 +2,7 @@ import React from "react"
 import { ViewStyle, Animated, Easing, TouchableWithoutFeedback } from "react-native"
 import { color } from "../../theme"
 import { SwitchProps } from "./switch.props"
+import { mergeAll, flatten } from "ramda"
 
 // dimensions
 const THUMB_SIZE = 30
@@ -45,6 +46,10 @@ const THUMB: ViewStyle = {
   elevation: 2,
 }
 
+const enhance = (style, newStyles): any => {
+  return mergeAll(flatten([style, newStyles]))
+}
+
 const makeAnimatedValue = (switchOn) => new Animated.Value(switchOn ? 1 : 0)
 
 export function Switch(props: SwitchProps) {
@@ -69,12 +74,12 @@ export function Switch(props: SwitchProps) {
       startAnimation(props.value)
       setPreviousValue(props.value)
     }
-  }, [props.value])
+  }, [previousValue, props.value, startAnimation])
 
-  const handlePress = React.useMemo(() => () => props.onToggle && props.onToggle(!props.value), [
-    props.onToggle,
-    props.value,
-  ])
+  const handlePress = React.useMemo(
+    () => () => props.onToggle && props.onToggle(!props.value),
+    [props],
+  )
 
   if (!timer) {
     return null
@@ -85,24 +90,20 @@ export function Switch(props: SwitchProps) {
     outputRange: [OFF_POSITION, ON_POSITION],
   })
 
-  const style = props.style
+  const style = enhance({}, props.style)
 
-  const trackStyle = [
-    TRACK,
-    {
-      backgroundColor: props.value ? ON_COLOR : OFF_COLOR,
-      borderColor: props.value ? BORDER_ON_COLOR : BORDER_OFF_COLOR,
-    },
-    props.value ? props.trackOnStyle : props.trackOffStyle,
-  ]
+  let trackStyle = TRACK
+  trackStyle = enhance(trackStyle, {
+    backgroundColor: props.value ? ON_COLOR : OFF_COLOR,
+    borderColor: props.value ? BORDER_ON_COLOR : BORDER_OFF_COLOR,
+  })
+  trackStyle = enhance(trackStyle, props.value ? props.trackOnStyle : props.trackOffStyle)
 
-  const thumbStyle = [
-    THUMB,
-    {
-      transform: [{ translateX }],
-    },
-    props.value ? props.thumbOnStyle : props.thumbOffStyle,
-  ]
+  let thumbStyle = THUMB
+  thumbStyle = enhance(thumbStyle, {
+    transform: [{ translateX }],
+  })
+  thumbStyle = enhance(thumbStyle, props.value ? props.thumbOnStyle : props.thumbOffStyle)
 
   return (
     <TouchableWithoutFeedback onPress={handlePress} style={style}>

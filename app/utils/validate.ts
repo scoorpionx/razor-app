@@ -1,3 +1,4 @@
+import { contains } from "ramda"
 const ValidateJS = require("validate.js")
 
 // HACK(steve): wierd typescript situation because of strange typings
@@ -8,7 +9,7 @@ const Validate: any = ValidateJS.default ? ValidateJS.default : ValidateJS
  */
 Validate.validators.excludes = function custom(value, options, key, attributes) {
   const list = attributes[options.attribute] || []
-  if (value && list.includes(value)) {
+  if (value && contains(value, list)) {
     return options.message || `${value} is in the list`
   }
 }
@@ -42,7 +43,7 @@ Validate.validators.tripped = function custom(value, options, key, attributes) {
  *
  */
 export interface ValidationRules {
-  [key: string]: Record<string, unknown>
+  [key: string]: {}
 }
 
 /**
@@ -60,7 +61,7 @@ export interface ValidationRules {
  * ```
  */
 export interface ValidationErrors {
-  [key: string]: string[]
+  [key: string]: {}
 }
 
 /**
@@ -69,7 +70,7 @@ export interface ValidationErrors {
  * @param rules The rules to apply.
  * @param data The object to validate.
  */
-export function validate(rules: ValidationRules, data: Record<string, unknown>): ValidationErrors {
+export function validate(rules: ValidationRules, data: {}): ValidationErrors {
   if (typeof data !== "object") {
     return {} as ValidationErrors
   }

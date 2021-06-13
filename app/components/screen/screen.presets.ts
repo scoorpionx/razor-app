@@ -1,4 +1,5 @@
 import { ViewStyle } from "react-native"
+import { isNil } from "ramda"
 import { color } from "../../theme"
 
 /**
@@ -62,5 +63,5 @@ export type ScreenPresets = keyof typeof presets
  */
 export function isNonScrolling(preset: ScreenPresets) {
   // any of these things will make you scroll
-  return !preset || !presets[preset] || preset === "fixed"
+  return isNil(preset) || !preset.length || isNil(presets[preset]) || preset === "fixed"
 }

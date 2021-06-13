@@ -16,10 +16,10 @@ export function Wallpaper(props: WallpaperProps) {
 
   // assemble the style
   const presetToUse = presets[preset] || presets.stretch
-  const styles = [presetToUse, styleOverride]
+  const style = { ...presetToUse, ...styleOverride }
 
   // figure out which image to use
   const source = backgroundImage || defaultImage
 
-  return <Image source={source} style={styles} />
+  return <Image source={source} style={style} />
 }
