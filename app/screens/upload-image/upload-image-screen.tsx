@@ -123,9 +123,9 @@ export const UploadImageScreen = observer(function UploadImageScreen({ route }) 
 
   const pickImage = async (_) => {
     let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
-      aspect: [4, 3],
+      aspect: [4, 4],
       quality: 1,
     })
     if (!result.cancelled) {
@@ -141,7 +141,7 @@ export const UploadImageScreen = observer(function UploadImageScreen({ route }) 
         <View style={{ marginTop: 40, alignSelf: "center" }}>
           {image ? (
             <TouchableOpacity onPress={pickImage}>
-              <Image style={IMAGE} source={{ uri: image.uri }} />
+              <Image style={IMAGE} source={{ uri: image }} />
             </TouchableOpacity>
           ) : (
             <TouchableOpacity onPress={pickImage}>

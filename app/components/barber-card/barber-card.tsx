@@ -1,6 +1,15 @@
 import React, { useState } from "react"
 import { observer } from "mobx-react-lite"
-import { TouchableOpacity, View, ViewStyle, TextStyle, Image, ImageStyle, FlexStyle, SafeAreaView } from "react-native"
+import {
+  TouchableOpacity,
+  View,
+  ViewStyle,
+  TextStyle,
+  Image,
+  ImageStyle,
+  FlexStyle,
+  SafeAreaView,
+} from "react-native"
 import { Text, Button } from "../../components"
 import { color, spacing, typography } from "../../theme"
 import { User } from "../../models/user/user"
@@ -10,7 +19,7 @@ const TEXT: TextStyle = {
   color: "#4F4F4F",
   fontFamily: typography.primary,
   lineHeight: 25,
-  textAlign: "center"
+  textAlign: "center",
 }
 
 const BOLD: TextStyle = { fontWeight: "bold" }
@@ -21,13 +30,13 @@ const TITLE: TextStyle = {
   color: color.palette.darkPlum,
   fontSize: 28,
   lineHeight: 38,
-  marginBottom: 10
+  marginBottom: 10,
 }
 
 const BARBER_CARD_WRAPPER: FlexStyle = {
   alignItems: "center",
   maxWidth: 327,
-  marginRight: 40
+  marginRight: 40,
 }
 
 const BARBER_CARD: ViewStyle = {
@@ -61,17 +70,17 @@ const PROFILE_IMAGE_WRAPPER: ViewStyle = {
   borderWidth: spacing[2],
   position: "absolute",
   shadowColor: "#000",
-  shadowOffset:{
+  shadowOffset: {
     width: 0,
     height: 12,
   },
   shadowOpacity: 0.58,
-  shadowRadius: 16.00,
+  shadowRadius: 16.0,
   elevation: 24,
 }
 
 const BTN_WRAPPER: ViewStyle = {
-  justifyContent: "space-around"
+  justifyContent: "space-around",
 }
 
 const BTN: ViewStyle = {
@@ -81,7 +90,7 @@ const BTN: ViewStyle = {
   top: 25,
   borderBottomRightRadius: spacing[1],
   borderBottomLeftRadius: spacing[1],
-  width: "100%"
+  width: "100%",
 }
 
 const BTN_TEXT: TextStyle = {
@@ -89,18 +98,18 @@ const BTN_TEXT: TextStyle = {
   ...BOLD,
   fontSize: 13,
   letterSpacing: 2,
-  color: color.palette.white
+  color: color.palette.white,
 }
 
 const FOOTER: ViewStyle = {
-  width: "100%"
+  width: "100%",
 }
 
 const FOOTER_CONTENT: ViewStyle = {
   flexDirection: "row",
   // paddingVertical: spacing[4],
   // paddingHorizontal: spacing[4],
-  width: "100%"
+  width: "100%",
 }
 
 export interface BarberCardProps {
@@ -116,7 +125,7 @@ export interface BarberCardProps {
  * Describe your component here
  */
 export const BarberCard = observer(function BarberCard(props: BarberCardProps) {
-  const { style, item: barber } = props
+  const { item: barber } = props
   const [appointment, setAppointment] = useState(false)
   // const styles = flatten([CONTAINER, style])
 
@@ -127,7 +136,7 @@ export const BarberCard = observer(function BarberCard(props: BarberCardProps) {
       </View>
       <View style={BARBER_CARD}>
         <View style={CARD_CONTENT}>
-          <Text style={TITLE}>{barber.username}</Text>
+          <Text style={TITLE}>{barber.name}</Text>
           <View style={TEXT_WRAPPER}>
             <Text style={TEXT}>{barber.description}</Text>
           </View>
@@ -136,15 +145,14 @@ export const BarberCard = observer(function BarberCard(props: BarberCardProps) {
       <SafeAreaView style={FOOTER}>
         <View style={FOOTER_CONTENT}>
           {!appointment && (
-            <TouchableOpacity 
+            <TouchableOpacity
               style={
-                !appointment ? 
-                  BTN
-                : 
-                  {
-                    ...BTN,
-                    backgroundColor: "#828583"
-                  }
+                !appointment
+                  ? BTN
+                  : {
+                      ...BTN,
+                      backgroundColor: "#828583",
+                    }
               }
               onPress={() => setAppointment(!appointment)}
             >
@@ -153,19 +161,18 @@ export const BarberCard = observer(function BarberCard(props: BarberCardProps) {
             </TouchableOpacity>
           )}
           {appointment && (
-            <TouchableOpacity 
+            <TouchableOpacity
               style={
-                appointment ? 
-                  { 
-                    ...BTN, 
-                    backgroundColor: "#f00",
-                  }
-                : 
-                  {
-                    ...BTN,
-                    backgroundColor: "#828583",
-                  }
-                }
+                appointment
+                  ? {
+                      ...BTN,
+                      backgroundColor: "#f00",
+                    }
+                  : {
+                      ...BTN,
+                      backgroundColor: "#828583",
+                    }
+              }
               onPress={() => setAppointment(!appointment)}
             >
               <Text style={BTN_TEXT}>CANCELAR</Text>

@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react"
 import { observer } from "mobx-react-lite"
 import { FlatList, TextStyle, View, ViewStyle } from "react-native"
-import { Screen, Text, Wallpaper, Header } from "../../components"
+import { Screen, Text, Wallpaper, Header, BarberCard } from "../../components"
 import { color, alternativeSpacing, typography, spacing } from "../../theme"
 import { useStores } from "../../models"
 import { User } from "../../models/user/user"
-import { BarberCard } from "../../components"
-// import { useNavigation } from "@react-navigation/native"
-// import { useStores } from "../../models"
 
 const ROOT: ViewStyle = {
   flex: 1,
@@ -40,22 +37,6 @@ const HEADER_CONTAINER: ViewStyle = {
 
 const BARBER_LIST: ViewStyle = {
   marginBottom: alternativeSpacing.large,
-}
-
-const BARBERS_WRAPPER: ViewStyle = {
-  borderBottomColor: color.line,
-  borderBottomWidth: 1,
-  paddingVertical: alternativeSpacing.large,
-}
-
-const BARBER: TextStyle = {
-  fontWeight: "bold",
-  fontSize: 16,
-  marginVertical: alternativeSpacing.medium,
-}
-
-const BARBER_WRAPPER: ViewStyle = {
-  paddingVertical: alternativeSpacing.smaller,
 }
 
 export const ListScreen = observer(function ListScreen() {

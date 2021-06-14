@@ -38,7 +38,7 @@ export const RootStoreModel = types
 			}
       return result
 		},
-    getBarbers: async (data: any) => {
+    getBarbers: async _ => {
       const result: GetBarbersResults = await self.environment.api.getBarbers()
       if(result.kind === "ok") {
 				self.saveBarbers(result.barbers)
