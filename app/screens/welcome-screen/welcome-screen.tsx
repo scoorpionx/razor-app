@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import { Button, Header, Screen, Text, Wallpaper } from "../../components"
 import { color, spacing, typography } from "../../theme"
-const bowserLogo = require("./bowser.png")
+const razorLogo = require("./razor.png")
 
 const FULL: ViewStyle = { flex: 1 }
 const CONTAINER: ViewStyle = {
@@ -46,10 +46,12 @@ const ALMOST: TextStyle = {
   fontSize: 26,
   fontStyle: "italic",
 }
-const BOWSER: ImageStyle = {
+const RAZOR: ImageStyle = {
   alignSelf: "center",
   marginVertical: spacing[5],
   maxWidth: "100%",
+  width: 240,
+  height: 180,
 }
 const CONTENT: TextStyle = {
   ...TEXT,
@@ -89,8 +91,8 @@ export const WelcomeScreen = observer(function WelcomeScreen() {
           <Text style={ALMOST} text="RAZOR" />
           <Text style={TITLE} text="!" />
         </Text>
-        <Text style={TITLE} preset="header" tx="welcomeScreen.readyForLaunch" />
-        <Image source={bowserLogo} style={BOWSER} />
+        <Text style={TITLE} preset="header" text="Pronto para começar" />
+        <Image source={razorLogo} style={RAZOR} />
         <Text style={CONTENT}>
           Se é seu primeiro acesso, você deve realizar seu cadastro e depois fazer login.
         </Text>

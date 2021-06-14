@@ -82,7 +82,6 @@ export class Api {
   async login(data): Promise<Types.GetLoginResult> {
     // make the api call
     const response: ApiResponse<any> = await this.apisauce.post(`/auth/local`, data)
-
     // the typical ways to die when calling an api
     if (!response.ok) {
       const problem = getGeneralApiProblem(response)
@@ -139,7 +138,9 @@ export class Api {
 
   async getBarbers(): Promise<Types.GetBarbersResults> {
     // make the api call
-    const response: ApiResponse<any> = await this.apisauce.get(`/users`)
+    const response: ApiResponse<any> = await this.apisauce.get(`/users`, {
+      barber: true,
+    })
     // the typical ways to die when calling an api
     if (!response.ok) {
       const problem = getGeneralApiProblem(response)

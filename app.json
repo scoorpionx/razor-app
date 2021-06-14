@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "testApp",
-    "slug": "testApp",
+    "name": "Razor",
+    "slug": "Razor",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,10 +15,14 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "Razor.App"
+    },
+    "android": {
+      "package": "Razor.App"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/icon.png"
     }
   }
 }
